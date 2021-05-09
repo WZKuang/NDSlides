@@ -1,0 +1,294 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (05/03/2021)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169, 11pt]{beamer}
+
+\mode<presentation> {
+	
+	% The Beamer class comes with a number of default slide themes
+	% which change the colors and layouts of slides. Below this is a list
+	% of all the themes, uncomment each in turn to see what they look like.
+	
+	%\usetheme{default}
+	%\usetheme{AnnArbor}
+	%\usetheme{Antibes}
+	%\usetheme{Bergen}
+	%\usetheme{Berkeley}
+	%\usetheme{Berlin}
+	%\usetheme{Boadilla}
+	%\usetheme{CambridgeUS}
+	%\usetheme{Copenhagen}
+	%\usetheme{Darmstadt}
+	%\usetheme{Dresden}
+	%\usetheme{Frankfurt}
+	%\usetheme{Goettingen}
+	%\usetheme{Hannover}
+	%\usetheme{Ilmenau}
+	%\usetheme{JuanLesPins}
+	%\usetheme{Luebeck}
+	%\usetheme{Madrid}
+	\usetheme{Malmoe}
+	%\usetheme{Marburg}
+	%\usetheme{Montpellier}
+	%\usetheme{PaloAlto}
+	%\usetheme{Pittsburgh}
+	%\usetheme{Rochester}
+	%\usetheme{Singapore}
+	%\usetheme{Szeged}
+	%\usetheme{Warsaw}
+	
+	% As well as themes, the Beamer class has a number of color themes
+	% for any slide theme. Uncomment each of these in turn to see how it
+	% changes the colors of your current slide theme.
+	
+	%\usecolortheme{albatross}
+	%\usecolortheme{beaver}
+	%\usecolortheme{beetle}
+	%\usecolortheme{crane}
+	%\usecolortheme{dolphin}
+	%\usecolortheme{dove}
+	%\usecolortheme{fly}
+	%\usecolortheme{lily}
+	%\usecolortheme{orchid}
+	%\usecolortheme{rose}
+	%\usecolortheme{seagull}
+	%\usecolortheme{seahorse}
+	%\usecolortheme{whale}
+	%\usecolortheme{wolverine}
+	
+	%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+	%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+	
+	%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{pgfpages}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\setsansfont{Times New Roman}
+\usepackage[natbib=true,style=numeric,backend=bibtex,useprefix=true]{biblatex}
+
+%----------------------------------------------------------------------------------------
+%	TEMPLATE SETTINGS
+%----------------------------------------------------------------------------------------
+% setting of bib file and references, \begin{frame}[t,allowframebreaks]
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\renewcommand*{\bibfont}{\scriptsize}
+\addbibresource{bibliography.bib}
+
+% itemize overview
+\setbeamertemplate{section in toc}[sections numbered] 
+\setbeamertemplate{subsection in toc}[square] 
+
+% adjust font
+\setbeamerfont{caption}{size=\tiny} % Changes the font size of the captions
+\setbeamerfont{footnote}{size=\tiny} % Changes the font size of footnotes
+\setbeamerfont{footnotemark}{size=\miniscule}
+\setbeamerfont*{block title}{family=\sffamily,series=\bfseries}
+\setbeamerfont*{frametitle}{family=\sffamily,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large}
+
+ % to number the captions
+\setbeamertemplate{caption}[numbered]
+
+% Set block color
+\definecolor{mygrey}{rgb}{0.52, 0.52, 0.51} 
+\definecolor{myblue}{rgb}{51,51,178} 
+\setbeamercolor{block title}{fg=white,bg=blue!50!black}
+\setbeamercolor{block body}{fg=black,bg=mygrey!10!white}
+
+% Set frame title feature
+\setbeamertemplate{frametitle}
+{
+	\begin{beamercolorbox}{frametitle}
+		\strut\insertframetitle\strut
+		\hfill
+		\raisebox{-3mm}{\includegraphics[width=2cm]{science_logo}}
+	\end{beamercolorbox}
+}
+% set template footnote
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+			\hspace{2em}
+		\end{beamercolorbox}
+		
+		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{title in head/foot}%
+			\hspace{2em}
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{16em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
+		\end{beamercolorbox}}
+	\vskip0pt%
+}
+\makeatletter
+
+% redefine amsmath macro to stretch matrix
+% Ex: \begin{bmatrix}[1.5]...
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+	\edef\arraystretch{#1}%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{*\c@MaxMatrixCols c}}
+\makeatother
+
+% insert logo
+\pgfdeclareimage[height=0.7cm]{logo}{science_logo}
+%\logo{\pgfuseimage{logo}}
+% These slides also contain speaker notes. You can print just the slides,
+% just the notes, or both, depending on the setting below. Comment out the want
+% you want.
+
+% slides and notes \note{}
+\setbeameroption{hide notes} % Only slides
+%\setbeameroption{show only notes} % Only notes
+%\setbeameroption{show notes on second screen=right} % Both
+%----------------------------------------------------------------------------------------
+%	CUSTOMIZED COMMANDS
+%----------------------------------------------------------------------------------------
+% self-customized abbreviation for commands
+\newcommand{\Th}{\mathcal{T}_h}
+\newcommand{\Tho}{\mathcal{T}_h^t}
+\newcommand{\Eh}{\mathcal{E}_h}
+\newcommand{\Eho}{\mathcal{E}_h^t}
+\newcommand{\HDG}{$\mathsf{HDG}$}
+\newcommand{\TaH}{$\mathsf{TH}$}
+\newcommand{\SV}{$\mathsf{SV}$}
+\newcommand{\vvv}{\vspace{0.5ex}}
+\newcommand{\vvvv}{\vspace{-1.8ex}}
+\newcommand{\lXi}{\text{\Large$\Xi$}}
+\newcommand{\jmp}[1]{[\![#1 ]\!]}
+\newcommand{\bldu}{\bld{u}}
+\newcommand{\bldv}{\bld{v}}
+\newcommand{\blduhat}{\widehat{\bld{u}}}
+\newcommand{\bldvhat}{\widehat{\bld{v}}}
+\newcommand{\lineu}{\underline{\bld{u}}}
+\newcommand{\linev}{\underline{\bld{v}}}
+\newcommand{\bldV}{\bld{V}}
+\newcommand{\bldU}{\bld{U}}
+\newcommand{\matrixU}{\mathbf{U}}
+\newcommand{\matrixV}{\mathbf{V}}
+\newcommand{\matrixlineU}{\mathbf{\underline{U}}}
+\newcommand{\matrixlineV}{\mathbf{\underline{V}}}
+\newcommand{\matrixP}{\mathbf{P}}
+\newcommand{\matrixQ}{\mathbf{Q}}
+\newcommand{\matrixUhat}{\mathbf{\widehat{U}}}
+\newcommand{\matrixVhat}{\mathbf{\widehat{V}}}
+\newcommand{\Uhat}{\widehat{U}}
+\newcommand{\Vhat}{\widehat{V}}
+\newcommand{\bldUhat}{\widehat{\bld{U}}}
+\newcommand{\bldVhat}{\widehat{\bld{V}}}
+\newcommand{\lineV}{\underline{\bld{V}}}
+\newcommand{\poly}{\mathcal{P}}
+\newcommand{\matrixA}{\mathbf{A}}
+\newcommand{\matrixB}{\mathbf{B}}
+\newcommand{\matrixC}{\mathbf{C}}
+\newcommand{\matrixD}{\mathbf{D}}
+\newcommand{\trans}{\mathrm{T}}
+
+% comand to justify
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+% abbreviations
+\newcommand{\bld}[1]{\hbox{\boldmath$#1$}}
+\newcommand{\diver}{\text{div}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Numerical scheme and Bayesian inversion]{Mathematical Modeling of atmospheric dispersion} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{ACMS80770 Presentation for Numerical Scheme and Bayesian Inversion}
+\author{Wenzheng Kuang} % Your name
+\institute[ACMS, Notre Dame] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+	Department of Applied \& Computational Mathematics \& Statistics,\\
+	University of Notre Dame \\ % Your institution for the title page
+	\medskip
+	\textit{wkuang1@nd.edu} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+	
+	% plain in title page
+	\frame[plain]{ 
+			\begin{center}
+				\includegraphics[height=0.15\textheight]{NDlogo} 
+			\end{center}
+	\titlepage
+	}
+	
+	\begin{frame}
+		\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+		\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+		
+	\end{frame}
+	
+	%----------------------------------------------------------------------------------------
+	%	PRESENTATION SLIDES
+	%----------------------------------------------------------------------------------------
+	\section{Model Problem}
+	%----------------------------------------------------------------------------------------
+	
+	%------------------------------------------------
+	
+	%------------------------------------------------
+	
+	
+	
+	
+	
+	%----------------------------------------------------------------------------------------
+	\section{Numerical Examples}
+	%----------------------------------------------------------------------------------------
+
+	%------------------------------------------------
+	
+	%------------------------------------------------
+	
+
+
+
+	
+	\begin{frame}[t,allowframebreaks]
+		\frametitle{References}
+		\printbibliography
+	\end{frame}
+	
+	%------------------------------------------------
+	% plain in final page
+	%\setbeamercolor{normal text}{fg=myblue}\usebeamercolor*{normal text}
+	\frame[plain]{ 
+	\begin{figure}[h]
+			\begin{center}
+			\includegraphics[height=0.15\textheight]{NDlogo} 
+			\end{center}
+	\end{figure}
+	\Huge{\centerline{Thanks for Listening.}}
+	\centerline{Q\&A}
+	}
+	
+	%----------------------------------------------------------------------------------------
+	
+\end{document} 
